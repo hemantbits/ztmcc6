@@ -90,7 +90,8 @@ class Q1 extends Component {
         //console.log('stringArray ' + stringArray)
         l1array[l1index++] = stringArray;
       }
-      console.log(l1array)
+      //console.log(l1array)
+      this.setState({button_value: this.props.printArray(l1array, false)});
       //alert(l1array)
     }
     return l1array;
@@ -107,13 +108,18 @@ class Q1 extends Component {
         <form>
           <div className="flex-container">
             <div className="flex-item">
-              <label className="pa5">Enter the input numbers (separated by comma) (see answer in console)</label>
+              <h3> Q1 </h3>
+              <label className="pa5">Enter the input numbers (separated by comma)</label>
               <input className="ba f5" type="text" value={this.state.inputArray} onChange={this.handleChangeInputArray}
               />
-              <label className="pa2 br3 f5" name="rgbButton">
-                {this.state.button_value}
-              </label>
             </div>
+          </div>
+          <div className="flex-container">
+            <div className="mt3 flex-item">
+                <label className="pa2 br3 f5" name="rgbButton">
+                  {this.state.button_value}
+                </label>
+              </div>
           </div>
           <div className="flex-container">
             <div className="flex-item">

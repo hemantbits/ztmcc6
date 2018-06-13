@@ -45,7 +45,9 @@ class Q2 extends Component {
     let found = false;
     
     if(arrayNumbers !== '' && target !== '') {
-      const array = arrayNumbers.split(',');
+      //const array = arrayNumbers.split(',');
+      const array = arrayNumbers.split(',').map(Number);
+      target = Number(target);
       //console.log('Array ' + array);
       let index;
       
@@ -54,11 +56,11 @@ class Q2 extends Component {
         //console.log('value ' + value);
         let count;
         for(count =  index+1; count < array.length; count++) {
-          //console.log('array[ ' + count + ' ] : ' + array[count] + ' sum = ' + (Number(array[count]) + Number(value)) + ' target ' + target);
-          if(Number(array[count]) + Number(value) === Number(target)) {
+          //console.log('array[ ' + count + ' ] : ' + array[count] + ' sum = ' + (array[count] + value) + ' target ' + target);
+          if(array[count] + value === target) {
             //console.log('value ' + value + ' array[count] ' + array[count]);
-            const printAnswer='['+value+','+array[count]+']';
-            this.setState({answer: printAnswer});
+            let newAnswer = [value, array[count]];
+            this.setState({answer: this.props.printArray(newAnswer, false)});
             found = true;
             break;
           }
@@ -83,15 +85,19 @@ class Q2 extends Component {
         <form>
           <div className="flex-container">
             <div className="flex-item">
+              <h3> Q2 </h3>
               <label className="pa5">Enter array numbers (separated by comma)</label>
               <input className="ba f5" type="text" value={this.state.arrayNumbers} onChange={this.handleChangeArrayNumbers}/>
               <label className="pa5">Enter target number</label>
               <input className="ba f5" type="text" value={this.state.target} onChange={this.handleChangeTarget}/>
-
-              <label className="pa2 br3 f5">
-                {this.state.answer}
-              </label>
             </div>
+          </div>
+          <div className="flex-container">
+            <div className="mt3 flex-item">
+                <label className="pa2 br3 f5" name="rgbButton">
+                  {this.state.answer}
+                </label>
+              </div>
           </div>
           <div className="flex-container">
             <div className="flex-item">

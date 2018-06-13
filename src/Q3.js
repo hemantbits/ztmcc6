@@ -75,13 +75,18 @@ class Q3 extends Component {
         <form>
           <div className="flex-container">
             <div className="flex-item">
+              <h3> Q3 </h3>
               <label className="pa5">Convert HEX (e.g. #AABBCC) to RGB (e.g. 255,155,100) and vice versa</label>
               <input className="ba f5" type="text" value={this.state.colour} onChange={this.handleChangeColour}
               />
-              <label className="pa2 br3 f5" name="rgbButton">
-                {this.state.button_value}
-              </label>
             </div>
+          </div>
+          <div className="flex-container">
+            <div className="mt3 flex-item">
+                <label className="pa2 br3 f5" name="rgbButton">
+                  {this.state.button_value}
+                </label>
+              </div>
           </div>
           <div className="flex-container">
             <div className="flex-item">
